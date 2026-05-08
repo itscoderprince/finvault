@@ -1,15 +1,28 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown, Wallet, Mouse } from "lucide-react";
 
 const HeroSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    // Background requires a gradient. In a real app, you might overlay a subtle cloud image here.
     <div className="min-h-screen bg-linear-to-b from-[#0B1120] via-[#0A2463] to-[#E2E8F0] overflow-hidden font-sans relative flex flex-col">
       {/* Main Hero Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 pt-16 pb-12 grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 items-center relative z-10 w-full flex-1">
-        {/* Left Column - Typography & CTA */}
-        <div className="max-w-4xl">
+      <main className="max-w-7xl mx-auto px-4 sm:px-8 mt-[12px] sm:mt-0 pt-16 pb-12 grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 sm:gap-12 items-center relative z-10 w-full flex-1">
+        
+        {/* Left Column - Typography & CTA (Animated on Load) */}
+        <div 
+          className={`max-w-4xl transition-all duration-1000 transform ease-out ${
+            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <h1 className="text-5xl md:text-6xl lg:text-[68px] font-extrabold text-white leading-[1.1] tracking-tight uppercase">
             Fast, Easy Global Money Transfers
           </h1>
@@ -19,29 +32,37 @@ const HeroSection = () => {
           </p>
           <Link
             href="/register"
-            className="inline-block mt-8 bg-[#C6F16D] text-slate-900 px-8 py-3.5 rounded-full font-semibold hover:bg-[#b3df5c] transition-colors shadow-lg"
+            className="inline-block mt-8 bg-[#C6F16D] text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-[#b3df5c] transition-colors shadow-lg active:scale-95"
           >
             Start Free trial
           </Link>
 
           {/* Scroll Indicator */}
-          <div className="mt-24 flex items-center gap-2 text-sm text-gray-900 font-medium tracking-wider">
-            <Mouse className="w-5 h-5 animate-pulse" />
+          <div className="mt-10 sm:mt-24 flex items-center gap-2 text-sm text-gray-400 font-medium tracking-wider">
+            <Mouse className="w-5 h-5 animate-pulse text-gray-400" />
             <span>SCROLL</span>
           </div>
         </div>
 
-        {/* Right Column - Images & Glassmorphism Card */}
-        <div className="relative h-[480px] sm:h-[600px] w-full flex justify-center items-end overflow-visible">
-          
+        {/* Right Column - Images & Glassmorphism Card (Animated on Load with subtle delay) */}
+        <div 
+          className={`relative h-[380px] sm:h-[600px] w-full flex justify-center items-end overflow-visible transition-all duration-1000 delay-200 transform ease-out ${
+            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           {/* Centered relative group container */}
           <div className="relative w-[320px] sm:w-[450px] h-full flex justify-center items-end">
-            {/* Note: Replace the src below with your actual transparent PNG of the model. */}
-            <img
-              src="/images/man.webp"
-              alt="Man using mobile phone"
-              className="relative z-20 h-[85%] sm:h-full object-cover object-bottom [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)] -scale-x-100"
-            />
+            
+            {/* Optimized Next.js Image component */}
+            <div className="relative z-20 h-[85%] sm:h-full w-full object-bottom">
+              <Image
+                src="/images/man.webp"
+                alt="Man using mobile phone"
+                fill
+                priority
+                className="object-cover object-bottom [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)] -scale-x-100"
+              />
+            </div>
 
             {/* Floating Glassmorphism Dashboard Card (Behind Boy) */}
             <div className="absolute left-[-20px] sm:left-[-110px] bottom-24 sm:bottom-32 z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-5 sm:p-6 w-[200px] sm:w-[280px] h-[145px] sm:h-[200px] shadow-2xl">

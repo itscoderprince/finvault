@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 
 const Footer = () => (
-  <footer className="bg-white py-24 px-4 sm:px-8 font-sans flex items-center justify-center w-full">
+  <footer className="bg-white pt-16 pb-8 md:pt-24 md:pb-12 px-4 sm:px-8 font-sans flex items-center justify-center w-full">
     {/* Main Container Grid */}
     <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[2fr_5fr] gap-8">
       

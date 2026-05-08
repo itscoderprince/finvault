@@ -51,26 +51,26 @@ const FeaturesGrid = () => {
   const activeIndex = hoveredIndex !== null ? hoveredIndex : 0;
 
   return (
-    <div className="bg-[#F8F9FA] py-24 px-4 sm:px-8 font-sans flex items-center justify-center w-full border-b border-slate-100">
+    <div className="bg-[#F8F9FA] py-12 md:py-24 px-4 sm:px-8 font-sans flex items-center justify-center w-full border-b border-slate-100">
       
       {/* Main Container */}
       <div className="max-w-7xl mx-auto w-full">
         
         {/* Header Section */}
-        <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-16">
+        <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-10 md:mb-16">
           
           {/* Pill Badge */}
-          <div className="inline-flex items-center gap-2 bg-white border border-slate-200/60 text-slate-700 text-xs font-medium px-4 py-1.5 rounded-full mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200/60 text-slate-700 text-xs font-medium px-4 py-1.5 rounded-full mb-4 md:mb-6 shadow-sm">
             <HandCoins className="w-4 h-4 text-blue-600" />
             Financial Control
           </div>
           
           {/* Titles */}
-          <h2 className="text-[2.25rem] md:text-[2.75rem] font-semibold text-slate-900 leading-[1.2] tracking-tight mb-4">
+          <h2 className="text-[1.75rem] md:text-[2.75rem] font-semibold text-slate-900 leading-[1.2] tracking-tight mb-3 md:mb-4">
             One Platform. Financial Clarity.
           </h2>
           
-          <p className="text-slate-500 text-base md:text-lg leading-relaxed">
+          <p className="text-slate-500 text-sm md:text-lg leading-relaxed">
             See your numbers clearly, automate daily tasks, and stay in control as you scale.
           </p>
         </div>
@@ -86,7 +86,7 @@ const FeaturesGrid = () => {
                 key={index}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="relative overflow-hidden rounded-[2rem] p-8 flex flex-col h-full bg-white shadow-sm border border-slate-200/40 cursor-pointer transition-all duration-500 ease-out hover:-translate-y-1.5"
+                className="relative overflow-hidden rounded-[2rem] p-6 md:p-8 flex flex-col h-full bg-white shadow-sm border border-slate-200/40 cursor-pointer transition-all duration-500 ease-out hover:-translate-y-1.5"
               >
                 {/* Smooth Gradient Opacity Fader Layer */}
                 <div 
@@ -98,7 +98,7 @@ const FeaturesGrid = () => {
                 {/* Content Layer (elevated above absolute gradient) */}
                 <div className="relative z-10 flex flex-col h-full">
                   {/* Icon Container */}
-                  <div className={`w-12 h-12 rounded-[14px] flex items-center justify-center mb-8 transition-all duration-500 ease-out ${
+                  <div className={`w-12 h-12 rounded-[14px] flex items-center justify-center mb-5 md:mb-8 transition-all duration-500 ease-out ${
                     isActive
                       ? 'bg-white text-slate-900 shadow-sm'
                       : 'bg-[#F4F5F7] text-slate-600 border border-slate-200/30'

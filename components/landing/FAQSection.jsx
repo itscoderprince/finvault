@@ -9,25 +9,34 @@ const FAQItem = ({ number, question, answer, defaultOpen = false }) => {
 
   return (
     <div
-      className={`rounded-2xl transition-all duration-200 overflow-hidden ${
+      className={`rounded-2xl transition-all duration-300 overflow-hidden ${
         isOpen
-          ? "bg-[#F8F9FA] border border-transparent"
+          ? "bg-white border border-blue-600/80 shadow-sm"
           : "bg-white border border-slate-200 hover:border-slate-300"
       }`}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-6 text-left cursor-pointer focus:outline-none"
+        className="w-full flex items-center justify-between p-4 md:p-6 text-left cursor-pointer focus:outline-none group"
       >
-        <span className="text-[1.1rem] font-medium text-slate-900 pr-4">
+        <span className={`text-[15px] md:text-[1.1rem] font-semibold pr-4 transition-colors duration-300 ${
+          isOpen ? "text-blue-600" : "text-slate-900 group-hover:text-blue-600"
+        }`}>
           {number}. {question}
         </span>
-        <span className="text-slate-900 flex-shrink-0">
-          {isOpen ? (
-            <Minus className="w-5 h-5 stroke-[1.5]" />
-          ) : (
-            <Plus className="w-5 h-5 stroke-[1.5]" />
-          )}
+        <span className="flex-shrink-0 ml-4">
+          <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+            isOpen ? "bg-blue-600 text-white rotate-180" : "bg-slate-100 text-slate-600 group-hover:bg-slate-200"
+          }`}>
+            <div className="relative w-4 h-4 flex items-center justify-center">
+              {/* Horizontal line */}
+              <span className="absolute h-[2px] w-3.5 bg-current rounded-full" />
+              {/* Vertical line morphs smoothly */}
+              <span className={`absolute h-3.5 w-[2px] bg-current rounded-full transition-all duration-300 ease-out ${
+                isOpen ? "scale-y-0 rotate-90" : "scale-y-100"
+              }`} />
+            </div>
+          </div>
         </span>
       </button>
 
@@ -37,7 +46,7 @@ const FAQItem = ({ number, question, answer, defaultOpen = false }) => {
         }`}
       >
         <div className="overflow-hidden">
-          <p className="px-6 pb-6 text-slate-600 text-[15px] leading-relaxed">
+          <p className="px-4 pb-4 md:px-6 md:pb-6 text-slate-500 text-sm md:text-[15px] text-justify md:text-left leading-relaxed">
             {answer}
           </p>
         </div>
@@ -113,13 +122,13 @@ const FAQSection = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F0F2F5] flex items-center justify-center p-4 md:p-8 font-sans">
+    <section className="bg-[#F8F9FA] py-8 md:py-24 px-4 sm:px-8 font-sans flex items-center justify-center w-full border-b border-slate-100">
       {/* Main Container */}
-      <div className="bg-white rounded-[2rem] p-8 md:p-12 lg:p-16 max-w-[1200px] w-full shadow-sm">
+      <div className="max-w-7xl mx-auto w-full">
         {/* Header Section */}
-        <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-16">
+        <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-10 md:mb-16">
           {/* FAQ Badge */}
-          <div className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 text-slate-700 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
+          <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200/60 text-slate-700 text-xs font-medium px-3 py-1.5 rounded-full mb-6 shadow-sm">
             <div className="bg-blue-600 rounded-full p-0.5">
               <MessageCircleQuestion className="w-3.5 h-3.5 text-white stroke-[2]" />
             </div>
@@ -127,11 +136,11 @@ const FAQSection = () => {
           </div>
 
           {/* Titles */}
-          <h2 className="text-[2rem] md:text-[2.75rem] font-semibold text-slate-900 leading-[1.2] tracking-tight mb-4">
+          <h2 className="text-[1.65rem] md:text-[2.75rem] font-semibold text-slate-900 leading-[1.2] tracking-tight mb-4">
             Frequently Asked Questions
           </h2>
 
-          <p className="text-slate-500 text-base leading-relaxed">
+          <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
             Everything you need to know, answered clearly in one place.
           </p>
         </div>
@@ -169,7 +178,7 @@ const FAQSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
