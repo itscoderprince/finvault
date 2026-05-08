@@ -28,6 +28,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable} ${outfit.variable} h-full antialiased`}
     >
+      <head>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+      </head>
       <body className="min-h-full flex flex-col bg-slate-950 text-slate-50">
         <QueryProvider>
           {children}
