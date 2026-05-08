@@ -122,7 +122,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="bg-[#F8F9FA] py-8 md:py-24 px-4 sm:px-8 font-sans flex items-center justify-center w-full border-b border-slate-100">
+    <section id="faqs" className="bg-[#F8F9FA] py-8 md:py-24 px-4 sm:px-8 font-sans flex items-center justify-center w-full border-b border-slate-100">
       {/* Main Container */}
       <div className="max-w-7xl mx-auto w-full">
         {/* Header Section */}

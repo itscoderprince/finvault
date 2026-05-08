@@ -8,11 +8,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: "Home", href: "#", active: true },
-    { label: "Investments", href: "#" },
-    { label: "Portfolios", href: "#" },
-    { label: "Pricing", href: "#" },
-    { label: "FAQs", href: "#" },
+    { label: "Home", href: "/", active: true },
+    { label: "Features", href: "#features" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "FAQs", href: "#faqs" },
   ];
 
   return (

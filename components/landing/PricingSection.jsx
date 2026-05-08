@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 const PricingSection = () => (
-  <section className="py-24 bg-white">
+  <section id="pricing" className="py-24 bg-white">
     <div className="max-w-7xl mx-auto px-4 md:px-8">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold text-slate-900 mb-4">

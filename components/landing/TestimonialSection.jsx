@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 const TestimonialSection = () => (
-  <section className="py-24 bg-slate-50 border-t border-slate-200">
+  <section id="testimonials" className="py-24 bg-slate-50 border-t border-slate-200">
     <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
       <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-12">
         Trusted by Growing Businesses

@@ -11,7 +11,7 @@ import {
 
 const FeaturesSection = () => {
   return (
-    <div className="bg-white min-h-screen py-12 px-4 sm:px-8 font-sans flex items-center justify-center w-full border-b border-slate-100">
+    <div id="features" className="bg-white min-h-screen py-12 px-4 sm:px-8 font-sans flex items-center justify-center w-full border-b border-slate-100">
       {/* Main Container */}
       <div className="max-w-7xl mx-auto w-full">
         {/* Header Section */}

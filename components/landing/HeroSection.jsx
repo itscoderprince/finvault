@@ -54,13 +54,13 @@ const HeroSection = () => {
           <div className="relative w-[320px] sm:w-[450px] h-full flex justify-center items-end">
             
             {/* Optimized Next.js Image component */}
-            <div className="relative z-20 h-[85%] sm:h-full w-full object-bottom">
+            <div className="relative z-20 h-full w-full overflow-visible">
               <Image
                 src="/images/man.webp"
                 alt="Man using mobile phone"
                 fill
                 priority
-                className="object-cover object-bottom [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)] -scale-x-100"
+                className="object-contain object-bottom [mask-image:linear-gradient(to_bottom,white_75%,transparent_100%)] -scale-x-100"
               />
             </div>
 
